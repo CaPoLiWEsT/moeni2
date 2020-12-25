@@ -29,7 +29,8 @@ async function findAndDownloadMoeni(path, n) {
     const { origin } = list[n];
 
     const torrentId = `https://player.moeni.org/${origin}.m3u8`;
-    const webSeedURL = (it) => `https://${it}.momoafile.info/${origin}.moe`;
+    //const webSeedURL = (it) => `https://${it}.momoafile.info/${origin}.moe`;
+    const webSeedURL = (it) => `https://${it}.inefile.xyz/${origin}.moe`;
     const client = new MoeVideo({ webSeeds: false });
 
     client.add(
@@ -53,7 +54,7 @@ async function findAndDownloadMoeni(path, n) {
 
         console.log("File list: ", torrent.files);
         console.log("Adding Seeds...");
-        ["s0", "s0-1"].forEach((it) => torrent.addWebSeed(webSeedURL(it)));
+        ["s0", "s0-1", "s1"].forEach((it) => torrent.addWebSeed(webSeedURL(it)));
         console.log("Adding Interval Checker...");
         const interval = setInterval(() => {
           const [d, l, p] = [
